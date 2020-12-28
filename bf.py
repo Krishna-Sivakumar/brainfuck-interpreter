@@ -44,7 +44,7 @@ while instruction < len(program):
         inp = stdin.read(1).rstrip()
         # If input is a character, convert it to ASCII
         if len(inp) > 0:
-            array[data_pointer] = int(inp) if not inp.isalpha() else ord(inp)
+            array[data_pointer] = int(inp) if inp.isnumeric() else ord(inp)
     elif command == '[':
         # Check if data at pointer is 0
         if array[data_pointer] == 0:

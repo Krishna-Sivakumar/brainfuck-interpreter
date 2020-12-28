@@ -1,4 +1,5 @@
-from sys import stdout
+#!/usr/bin/env pypy3
+from sys import stdout, stdin
 
 array = [0 for i in range(30000)]
 data_pointer = 0
@@ -40,10 +41,10 @@ while instruction < len(program):
         stdout.write(chr(array[data_pointer]))
     elif command == ',':
         # Set data at pointer to input
-        inp = input()
+        inp = stdin.read(1).rstrip()
         # If input is a character, convert it to ASCII
-        array[data_pointer] = int(inp) if not inp.isalpha() else ord(inp)
-        pass
+        if len(inp) > 0:
+            array[data_pointer] = int(inp) if not inp.isalpha() else ord(inp)
     elif command == '[':
         # Check if data at pointer is 0
         if array[data_pointer] == 0:

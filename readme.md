@@ -6,16 +6,26 @@ The Go implementation is roughly 5 times faster than the Python implementation o
 though they're written similarly.
 
 
-# Building the Go Interpreter 
+### Building the Go Interpreter 
 
+```
 go build -o bf bf.go
+```
 
-# Usage (Go)
+### Usage (Go)
 
+```
 ./bf file
+```
 
-# Usage (Python)
+### Usage (Python)
 
-python3 bf.py (If pypy3 is not installed on the system)
+```
+python3 bf.py 
+```
+(If pypy3 is not installed on the system)
 
-./bf.py (if pypy3 is installed on the system)
+```
+./bf.py
+```
+(if pypy3 is installed on the system)

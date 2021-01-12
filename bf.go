@@ -91,14 +91,10 @@ func main() {
 
 func cleanFile(bfFile string) string {
 	// Cleans the input file
-	var formattedFile strings.Builder
-
-	for _, c := range bfFile {
-		c := string(c)
-		if strings.Contains("<>+-.,[]", c) {
-			formattedFile.WriteString(c)
+	return strings.Map(func(c rune) rune {
+		if strings.Contains("<>+-.,[]", string(c)) {
+			return c
 		}
-	}
-
-	return formattedFile.String()
+		return -1
+	}, bfFile)
 }

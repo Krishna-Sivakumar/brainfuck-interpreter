@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -16,7 +17,12 @@ func check(e error) {
 func main() {
 
 	// Program is read into an array
-	bfFile, err := ioutil.ReadFile("input.bf")
+	if len(os.Args) == 1 {
+		fmt.Println("USAGE: program [OPTIONS] file")
+		os.Exit(1)
+	}
+
+	bfFile, err := ioutil.ReadFile(os.Args[len(os.Args)-1])
 	check(err)
 
 	// Program is cleaned of whitespace and unecessary characters

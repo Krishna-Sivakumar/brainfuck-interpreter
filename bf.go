@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -49,6 +51,8 @@ func main() {
 	array := [30000]int{}
 	dataPointer := 0
 
+	scanner := bufio.NewReader(os.Stdin)
+
 	for instruction < len(program) {
 		command := program[instruction]
 
@@ -65,6 +69,11 @@ func main() {
 			fmt.Print(string(array[dataPointer]))
 		} else if command == ',' {
 			// Input; have to implement it later
+			rune, _, err := scanner.ReadRune()
+			if err != io.EOF {
+				check(err)
+			}
+			array[dataPointer] = int(rune)
 		} else if command == '[' {
 			if array[dataPointer] == 0 {
 				instruction = loopMap[instruction]

@@ -68,7 +68,6 @@ func main() {
 		} else if command == '.' {
 			fmt.Print(string(array[dataPointer]))
 		} else if command == ',' {
-			// Input; have to implement it later
 			rune, _, err := scanner.ReadRune()
 			if err != io.EOF {
 				check(err)

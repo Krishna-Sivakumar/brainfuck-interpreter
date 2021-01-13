@@ -20,7 +20,11 @@ func main() {
 
 	// Program is read into an array
 	if len(os.Args) == 1 {
-		fmt.Println("USAGE: program [OPTIONS] file")
+		fmt.Println("error: no input files")
+		fmt.Println("USAGE: brainfuck-interpreter file")
+		os.Exit(1)
+	} else if os.Args[1] == "--help" {
+		fmt.Println("USAGE: brainfuck-interpreter file")
 		os.Exit(1)
 	}
 
